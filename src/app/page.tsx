@@ -19,18 +19,10 @@ export default function Home() {
       revalidateOnReconnect: false
     }
   );
-
-  console.log(data)
-
-  // useEffect(() => {
-  //   const fetchData = async() => {
-  //     const res = await fetch('http://localhost:8000/blogs')
-  //     const data = await res.json()
-  //     console.log(data)
-  //   }
-  //   fetchData()
-  // }, []);
-
+  
+  if(isLoading){
+    return <div>Loading ....</div>
+  }
   return (
     <div>
       <div>{data?.length}</div>
@@ -47,7 +39,7 @@ export default function Home() {
           <Link href='/tiktok'>Tiktok</Link>
         </li>
       </ul>
-      <AppTableee />
+      <AppTableee blogs={data}/>
     </div>
   )
 }
