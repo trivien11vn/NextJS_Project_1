@@ -1,6 +1,7 @@
 import Link from "next/link"
 import x from '@/styles/app.module.css'
 import y from '@/styles/edit.module.css'
+import AppTableee from '@/components/app.table';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
           <Link href='/tiktok'>Tiktok</Link>
         </li>
       </ul>
+      <AppTableee />
     </div>
   )
 }
