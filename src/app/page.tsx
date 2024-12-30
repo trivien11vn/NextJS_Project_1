@@ -39,7 +39,7 @@ export default function Home() {
           <Link href='/tiktok'>Tiktok</Link>
         </li>
       </ul>
-      <AppTableee blogs={data}/>
+      <AppTableee blogs={data?.sort((a:any, b:any) => b.id - a.id)}/>
     </div>
   )
 }
