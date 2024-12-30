@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import { toast } from 'react-toastify';
 
 interface IProps {
     showModalCreate: boolean;
@@ -18,9 +19,24 @@ function CreateModal(props: IProps) {
     const handleShow = () => setShowModalCreate(true);
 
     const handleSubmit = () => {
-        console.log('title', title)
-        console.log('author', author)
-        console.log('content', content)
+        if(!title || !author || !content){
+            toast.error('Please fill all field')
+            return
+        }
+        fetch('http://localhost:8000/blogs', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({title, author, content})
+        }).then(res => res.json())
+            .then(res => {
+                if(res){
+                    toast.success('Create blog success')
+                    handleCloseModal()
+                }
+            });
     }
 
     const handleCloseModal = () => {
