@@ -3,9 +3,6 @@
 import Link from "next/link"
 import x from '@/styles/app.module.css'
 import y from '@/styles/edit.module.css'
-import AppTableee from '@/components/app.table'
-import { useEffect } from "react"
-import useSWR from 'swr'
 
 export default function Home() {
 

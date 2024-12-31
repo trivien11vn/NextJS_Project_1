@@ -8,10 +8,10 @@ const BlogsPage = () => {
     const { data, error, isLoading } = useSWR(
         'http://localhost:8000/blogs',
         fetcher, {
-        revalidateIfStale: false,
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false
-    }
+            revalidateIfStale: false,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false
+        }
     );
 
     if (isLoading) {
